@@ -1,0 +1,16 @@
+{
+  "name": "cf-api-restful",
+  "version": "1.0.0",
+  "description": "API RESTful de sensores y mediciones con Express.js - Práctica 5 Computación Física",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

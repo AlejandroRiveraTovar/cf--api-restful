@@ -1,0 +1,70 @@
+### Cambia @url por la Forwarded Address de Codespaces (o deja localhost)
+@url = http://localhost:3000
+
+### 1. Leer todos los sensores
+GET {{url}}/sensores
+
+### 2. Crear medición en el sensor 0 (body de la guía)
+POST {{url}}/sensores/0/mediciones
+Content-Type: application/json
+
+{
+  "momento": "2020-10-23T20:51:39.720Z",
+  "valor": 27.8,
+  "unidad": "ºC"
+}
+
+### 3. Crear sensor
+POST {{url}}/sensores
+Content-Type: application/json
+
+{
+  "nombre": "Sensor de Humedad - UAO - InfoLab"
+}
+
+### 4. Leer sensor 1
+GET {{url}}/sensores/1
+
+### 5. Actualizar sensor 1
+PUT {{url}}/sensores/1
+Content-Type: application/json
+
+{
+  "nombre": "Sensor de Humedad - Lab 2"
+}
+
+### 6. Leer mediciones del sensor 0
+GET {{url}}/sensores/0/mediciones
+
+### 6b. Mediciones filtradas por fecha
+GET {{url}}/sensores/0/mediciones?hasta=2021-01-01T00:00:00Z
+
+### 7. Leer medición 2 del sensor 0
+GET {{url}}/sensores/0/mediciones/2
+
+### 8. Actualizar medición 2 del sensor 0
+PUT {{url}}/sensores/0/mediciones/2
+Content-Type: application/json
+
+{
+  "valor": 30.1,
+  "unidad": "ºC"
+}
+
+### 9. Eliminar medición 2 del sensor 0
+DELETE {{url}}/sensores/0/mediciones/2
+
+### 10. Eliminar sensor 1
+DELETE {{url}}/sensores/1
+
+### 11. Error 404
+GET {{url}}/sensores/99
+
+### 12. Error 405
+DELETE {{url}}/sensores
+
+### 13. Error 400
+POST {{url}}/sensores
+Content-Type: application/json
+
+{}
